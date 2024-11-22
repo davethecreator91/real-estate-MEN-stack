@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Listing</title>
+</head>
+<body>
+    <form id="createListing" action="allListings.ejs">
+        Address: <input type="text" name="address">
+        Description: <input type="text" name="description">
+        Price: <input type="text" name="price">
+        Beds: <select name="beds" id="beds">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+        </select>
+        Baths: <select name="beds" id="beds">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+        </select>
+        Sqft: <input type="text">
+        <button type="submit" href="allListings.ejs">Submit</button>
+    </form>
+</body>
+</html>

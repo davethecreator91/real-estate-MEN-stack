@@ -11,3 +11,4 @@ const reLisitngSchema = new mongoose.Schema({
 
 const reListingModel = mongoose.model("reListingModel", reLisitngSchema);
 module.exports = reListingModel;
+
