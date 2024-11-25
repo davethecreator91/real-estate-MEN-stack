@@ -29,21 +29,46 @@ app.get ("/createListing", async (req,res) => {
     res.render("reListings/createListings.ejs");
     console.log("loaded createListings.ejs");
 })
+app.get ("/allListings", async (req,res) => {
+    const allListings = await reListingModel.find();
+    res.render("reListings/allListings.ejs", {listings: allListings})
+    console.log("loaded allListings");
+    
+})
+app.get("/allListings/:listing", async (req,res) => {
+    const foundListing = await reListingModel.findById(req.params.listing);
+    res.render("reListings/show.ejs", {listing: foundListing})
+    // res.render(`show.ejs, ${req.params.listing}`)
 
-app.get("/createListing/:listingID", async (req,res) => {
-    const foundListing = await reListingModel.findbyId(req.params.listingID);
-    res.render("show.ejs", {listingID: foundListing})
     console.log("loaded show.ejs");
 })
 
+// app.get("/allListings/:listing/editListing", async (req,res) => {
+//     const listing = await reListingModel.findById(req.params.listing)
+//     res.render("reListings/editListing.ejs", { listing });
+// })
 //------------POST---------------
 app.post("/createListing", async (req,res) => {
-
+    const listingCreated = await reListingModel.create(req.body);
+    res.redirect("/allListings")
+    console.log("Request Body:", req.body);
+    console.log("created Listing");
+    
 })
 //------------DELETE-------------
-
+app.delete("/allListings/:listing", async (req,res) => {
+    await reListingModel.findByIdAndDelete(req.params.listing);
+    res.redirect("/allListings");
+    console.log("Listing Deleted");
+});
 //------------UPDATE-------------
 
+
+
+
+
+
+//Listener
 app.listen(3008, () => {
     console.log("listening on port 3008");
 })

@@ -6,28 +6,41 @@
     <title>Create a Listing</title>
 </head>
 <body>
-    <form id="createListing" action="allListings.ejs">
-        Address: <input type="text" name="address">
-        Description: <input type="text" name="description">
-        Price: <input type="text" name="price">
-        Beds: <select name="beds" id="beds">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
+    <h1>Create a New Listing</h1>
+    <form id="createListing" action="/createListing" method="post">
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" placeholder="123 Main St" required>
+        
+        <label for="desc">Description:</label>
+        <input type="text" id="desc" name="desc" placeholder="Beautiful 3-bedroom house" required>
+        
+        <label for="price">Price ($):</label>
+        <input type="number" id="price" name="price" placeholder="300000" required>
+        
+        <label for="bed">Beds:</label>
+        <select name="bed" id="bed" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
         </select>
-        Baths: <select name="beds" id="beds">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
+        
+        <label for="bath">Baths:</label>
+        <select name="bath" id="bath" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
         </select>
-        Sqft: <input type="text">
-        <button type="submit" href="allListings.ejs">Submit</button>
+        
+        <label for="sqft">Sqft:</label>
+        <input type="number" id="sqft" name="sqft" placeholder="1200" required>
+        
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>

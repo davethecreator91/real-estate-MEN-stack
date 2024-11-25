@@ -6,6 +6,14 @@
     <title>Edit Listing</title>
 </head>
 <body>
+    <h1>Edit Listing</h1>
+    <form action="/editListing/<%= listing._id %>?_method=PUT" method="POST">
+        Address: <input type="text" name="address" value="<%= listing.address %>">
+        Description: <input type="text" name="description" value="<%= listing.description %>">
+        Price: <input type="text" name="price" value="<%= listing.price %>">
+        <!-- Other fields here -->
+        <button type="submit">Update</button>
+    </form>
     
 </body>
 </html>
