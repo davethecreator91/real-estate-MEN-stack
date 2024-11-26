@@ -4,14 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Listing</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
 </head>
 <body>
     <h1>Edit Listing</h1>
-    <form action="/editListing/<%= listing._id %>?_method=PUT" method="POST">
+    <form action="/allListings/<%= listing._id %>?_method=PUT" method="POST">
         Address: <input type="text" name="address" value="<%= listing.address %>">
         Description: <input type="text" name="description" value="<%= listing.description %>">
         Price: <input type="text" name="price" value="<%= listing.price %>">
-        <!-- Other fields here -->
+        Beds:  <select name="bed" id="bed" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select>
+       Baths: <select name="bath" id="bath" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select>
         <button type="submit">Update</button>
     </form>
     

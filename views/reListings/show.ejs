@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><% listing.address %></title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
 </head>
 <body>
     <h2>Property Details</h2>
@@ -16,7 +17,9 @@
 <form action="/allListings/<%=listing._id%>?_method=DELETE" method="POST">
     <button type="submit">Delete <%= listing.address%></button>
 </form>
+<a href="/allListings/<%=listing._id%>/edit">Edit</a>
 <!-- <a href="/allListings/<%= listing._id %>/edit">Edit <%= listing.address %></a> -->
 <a href="/allListings">Back to All Listings</a>
+<a href="/">Back to Main Menu</a>
 </body>
 </html>

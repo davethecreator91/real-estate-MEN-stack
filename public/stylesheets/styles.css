@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+
+body {
+    background: #f4f4f4;
+    font-family: "DM Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 100vw;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    background-color: #E8E4DE;
+    /* padding: 10px 20px; */
+    align-items: center;
+  }
+  .auth-links h2:hover {
+    /* gap: 15px; */
+    /* padding: 10px 20px; */
+    /* text-decoration: underline; */
+  }
+  /* .header {
+    background-color: #F1F1F1;
+    text-align: center;
+    padding: 20px;
+  } */
+  h1 {
+    color: #A14A97;
+    font-size: 3.6em;
+  }
+
+  h2 {
+    color: #A14A97
+  }
+  
+  /* footer {
+    font-size: 0.7em;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  } */
+  

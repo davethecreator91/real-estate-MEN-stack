@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const methodOverride = require("method-override");
+const path = require("path");
 
 // Instantiate Modules
 dotenv.config();
@@ -12,6 +13,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method")); // new
 app.use(morgan("dev")); //new
 
+
+app.use(express.static(path.join(__dirname, "public")));
 mongoose.connect(process.env.MONGODB_URI); // Connect to MongoDB
 mongoose.connection.on("connected", () => { //Log connection
     console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
@@ -39,14 +42,13 @@ app.get("/allListings/:listing", async (req,res) => {
     const foundListing = await reListingModel.findById(req.params.listing);
     res.render("reListings/show.ejs", {listing: foundListing})
     // res.render(`show.ejs, ${req.params.listing}`)
-
     console.log("loaded show.ejs");
 })
 
-// app.get("/allListings/:listing/editListing", async (req,res) => {
-//     const listing = await reListingModel.findById(req.params.listing)
-//     res.render("reListings/editListing.ejs", { listing });
-// })
+app.get("/allListings/:listing/edit", async (req,res) => {
+    const listing = await reListingModel.findById(req.params.listing)
+    res.render("reListings/editListing.ejs", { listing });
+})
 //------------POST---------------
 app.post("/createListing", async (req,res) => {
     const listingCreated = await reListingModel.create(req.body);
@@ -63,7 +65,10 @@ app.delete("/allListings/:listing", async (req,res) => {
 });
 //------------UPDATE-------------
 
-
+app.put("/allListings/:listing", async (req,res) => {
+    await reListingModel.findByIdAndUpdate(req.params.listing, req.body);
+    res.redirect(`/allListings/${req.params.listing}`);
+})
 
 
 
